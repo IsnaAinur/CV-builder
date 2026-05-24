@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
+// Tambahkan properti base sesuai dengan nama repository GitHub kamu
 export default defineConfig({
   plugins: [react()],
+  base: '/CV-builder/', 
 })
