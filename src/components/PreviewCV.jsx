@@ -1,7 +1,7 @@
 export default function PreviewCV({ data }) {
   return (
     <div className="preview-column">
-      {/* Header Utama Kertas CV */}
+      {/* Header */}
       <div className="cv-preview-header">
         <h2>{data.name || 'NAMA LENGKAP ANDA'}</h2>
         <div className="cv-contacts">
@@ -18,66 +18,66 @@ export default function PreviewCV({ data }) {
               {data.phone}
             </span>
           )}
-          {!data.email && !data.phone && <span className="cv-placeholder-text">Kontak Anda akan muncul di sini</span>}
+          {!data.email && !data.phone && <span className="cv-placeholder-text">Your contact information will appear here</span>}
         </div>
       </div>
 
-      {/* Section: Summary */}
+      {/* Summary */}
       <div className="cv-preview-section">
         <h3>Summary</h3>
         <p className="cv-text-paragraph">
-          {data.summary || 'Tuliskan deskripsi profesional singkat tentang minat, fokus, dan keahlian utama Anda.'}
+          {data.summary || 'Write a brief professional profile about your interests, focus, and main skills.'}
         </p>
       </div>
 
-      {/* Section: Skills */}
+      {/* Skills */}
       <div className="cv-preview-section">
         <h3>Skills</h3>
         <p className="cv-text-skills">
-          {data.skills || 'Daftar keahlian teknis Anda.'}
+          {data.skills || 'Write a list of your technical skills.'}
         </p>
       </div>
 
-      {/* Section: Pendidikan */}
+      {/* Education */}
       <div className="cv-preview-section">
-        <h3>Pendidikan</h3>
+        <h3>Education</h3>
         <div className="cv-item">
           <div className="cv-item-title">
-            <span className="text-left">{data.school || 'Nama Institusi Pendidikan'}</span>
-            <span className="cv-item-date">{data.eduDate || 'Periode'}</span>
+            <span className="text-left">{data.school || 'Name of Educational Institution'}</span>
+            <span className="cv-item-date">{data.eduDate || 'Period'}</span>
           </div>
-          <div className="cv-item-sub">{data.study || 'Jurusan / Program Studi'}</div>
+          <div className="cv-item-sub">{data.study || 'Major / Program of Study'}</div>
         </div>
       </div>
 
-      {/* Section: Kerja */}
+      {/* SWork Experience */}
       <div className="cv-preview-section">
-        <h3>Pengalaman Kerja</h3>
+        <h3>Work Experience</h3>
         <div className="cv-item">
           <div className="cv-item-title">
-            <span className="text-left">{data.company || 'Nama Perusahaan / Proyek'}</span>
+            <span className="text-left">{data.company || 'Name of Company / Project'}</span>
             <span className="cv-item-date">
-              {data.expFrom && data.expUntil ? `${data.expFrom} &#8212; ${data.expUntil}` : 'Periode'}
+              {data.expFrom && data.expUntil ? `${data.expFrom} &#8212; ${data.expUntil}` : 'Period'}
             </span>
           </div>
-          <div className="cv-item-sub">{data.position || 'Posisi atau Peran Utama'}</div>
+          <div className="cv-item-sub">{data.position || 'Position or Main Role'}</div>
           <p className="cv-item-desc">
-            {data.responsibilities || 'Detail deskripsi tugas kerja dan tanggung jawab.'}
+            {data.responsibilities || 'Detail description of job duties and responsibilities.'}
           </p>
         </div>
       </div>
 
-      {/* Section: Organisasi */}
+      {/* Organizational Experience */}
       <div className="cv-preview-section">
-        <h3>Pengalaman Organisasi</h3>
+        <h3>Organizational Experience</h3>
         <div className="cv-item">
           <div className="cv-item-title">
-            <span className="text-left">{data.orgName || 'Nama Organisasi / Komunitas'}</span>
-            <span className="cv-item-date">{data.orgDate || 'Periode'}</span>
+            <span className="text-left">{data.orgName || 'Name of Organization / Community'}</span>
+            <span className="cv-item-date">{data.orgDate || 'Period'}</span>
           </div>
-          <div className="cv-item-sub">{data.orgRole || 'Jabatan / Peran'}</div>
+          <div className="cv-item-sub">{data.orgRole || 'Position / Role'}</div>
           <p className="cv-item-desc">
-            {data.orgDesc || 'Detail kontribusi atau program kerja dalam organisasi.'}
+            {data.orgDesc || 'Detail contribution or work programs within the organization.'}
           </p>
         </div>
       </div>
