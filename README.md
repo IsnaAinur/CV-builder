@@ -60,7 +60,7 @@ src
 Clone Repository
 ```bash
 git clone https://github.com/IsnaAinur/CV-builder.git
-
+```
 Open Project Directory
 ```bash
 cd CV-builder
