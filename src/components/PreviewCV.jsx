@@ -3,7 +3,7 @@ export default function PreviewCV({ data }) {
     <div className="preview-column">
       {/* Header */}
       <div className="cv-preview-header">
-        <h2>{data.name || 'NAMA LENGKAP ANDA'}</h2>
+        <h2>{data.name || 'Your Name'}</h2>
         <div className="cv-contacts">
           {data.email && (
             <span>
