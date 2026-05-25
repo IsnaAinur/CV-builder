@@ -1,17 +1,30 @@
 export default function Organization({ data, onChange, isEdit, onToggle }) {
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div className="cv-form-card">
-      <h2>6. PENGALAMAN ORGANISASI</h2>
+      <h2>5. ORGANISASI / KEGIATAN</h2>
       {isEdit ? (
-        <form onSubmit={(e) => { e.preventDefault(); onToggle(); }}>
-          <label>Nama Organisasi / Komunitas</label>
-          <input type="text" name="orgName" value={data.orgName} onChange={onChange} placeholder="Contoh: Komunitas IT Senior" required />
-          <label>Jabatan / Peran</label>
-          <input type="text" name="orgRole" value={data.orgRole} onChange={onChange} placeholder="Contoh: Anggota Divisi Hubungan Masyarakat" required />
+        <form 
+          onSubmit={(e) => { e.preventDefault(); onToggle(); }}
+          onKeyDown={handleKeyDown}
+        >
+          <label>Nama Organisasi / Acara</label>
+          <input type="text" name="orgName" value={data.orgName} onChange={onChange} placeholder="Contoh: BEM FASILKOM" required />
+          
+          <label>Peran / Jabatan</label>
+          <input type="text" name="orgRole" value={data.orgRole} onChange={onChange} placeholder="Contoh: Anggota Divisi Humas" required />
+          
           <label>Periode Waktu</label>
-          <input type="text" name="orgDate" value={data.orgDate} onChange={onChange} placeholder="Contoh: 2024 - 2025" required />
-          <label>Deskripsi Singkat Kegiatan</label>
-          <textarea name="orgDesc" value={data.orgDesc} onChange={onChange} placeholder="• Merancang program kerja publikasi digital.&#10;• Mengelola komunikasi eksternal." required />
+          <input type="text" name="orgDate" value={data.orgDate} onChange={onChange} placeholder="Contoh: 2023 - 2024" required />
+          
+          <label>Deskripsi Kegiatan</label>
+          <textarea name="orgDesc" value={data.orgDesc} onChange={onChange} placeholder="Tuliskan kontribusi Anda dalam organisasi..." required />
+          
           <button type="submit" className="btn-submit">Simpan</button>
         </form>
       ) : (

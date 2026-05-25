@@ -37,19 +37,16 @@ function App() {
 
   return (
     <div className="app-container">
-      <div className="btn-download-container">
-        <button className="btn-download" onClick={() => window.print()}>
-          <span dangerouslySetInnerHTML={{ __html: '&#128190; ' }} /> UNDUH CV (PDF)
-        </button>
-      </div>
-
+      {/* 1. HEADER */}
       <header>
         <h1>Curriculum Vitae</h1>
         <p>Build your own CV with ease</p>
       </header>
 
+      {/* CONTAINER UTAMA */}
       <main className="cv-builder">
-        {/* KOLOM KIRI: KUMPULAN INPUT FORM */}
+        
+        {/* 2. INPUT FORM */}
         <div className="form-column">
           <GeneralInfo data={cvData} onChange={handleChange} isEdit={editMode.general} onToggle={() => toggleEdit('general')} />
           <SummarySkills data={cvData} onChange={handleChange} isEdit={editMode.summary} onToggleSummary={() => toggleEdit('summary')} onToggleSkills={() => toggleEdit('skills')} editMode={editMode} />
@@ -58,8 +55,16 @@ function App() {
           <Organization data={cvData} onChange={handleChange} isEdit={editMode.organization} onToggle={() => toggleEdit('organization')} />
         </div>
 
-        {/* KOLOM KANAN: LIVE PREVIEW RESUME */}
+        {/* 3. PREVIEW CV */}
         <PreviewCV data={cvData} />
+
+        {/* 4. TOMBOL UNDUH CV */}
+        <div className="btn-download-container">
+          <button className="btn-download" onClick={() => window.print()}>
+            <span dangerouslySetInnerHTML={{ __html: '&#128190; ' }} /> UNDUH CV (PDF)
+          </button>
+        </div>
+
       </main>
     </div>
   );

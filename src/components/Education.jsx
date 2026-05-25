@@ -1,15 +1,27 @@
 export default function Education({ data, onChange, isEdit, onToggle }) {
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div className="cv-form-card">
-      <h2>4. RIWAYAT PENDIDIKAN</h2>
+      <h2>3. PENDIDIKAN</h2>
       {isEdit ? (
-        <form onSubmit={(e) => { e.preventDefault(); onToggle(); }}>
-          <label>Institusi Pendidikan</label>
-          <input type="text" name="school" value={data.school} onChange={onChange} placeholder="Contoh: SMK Negeri 2 Surakarta" required />
-          <label>Program Studi / Jurusan</label>
-          <input type="text" name="study" value={data.study} onChange={onChange} placeholder="Contoh: Rekayasa Perangkat Lunak" required />
-          <label>Periode Studi</label>
-          <input type="text" name="eduDate" value={data.eduDate} onChange={onChange} placeholder="Contoh: Jan 2023 - Sep 2027" required />
+        <form 
+          onSubmit={(e) => { e.preventDefault(); onToggle(); }}
+          onKeyDown={handleKeyDown}
+        >
+          <label>Nama Sekolah / Universitas</label>
+          <input type="text" name="school" value={data.school} onChange={onChange} placeholder="Contoh: Universitas Brawijaya" required />
+          
+          <label>Jurusan / Program Studi</label>
+          <input type="text" name="study" value={data.study} onChange={onChange} placeholder="Contoh: Teknik Informatika" required />
+          
+          <label>Tahun Kelulusan / Periode</label>
+          <input type="text" name="eduDate" value={data.eduDate} onChange={onChange} placeholder="Contoh: 2022 - 2026" required />
+          
           <button type="submit" className="btn-submit">Simpan</button>
         </form>
       ) : (

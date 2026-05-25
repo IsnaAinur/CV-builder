@@ -1,37 +1,51 @@
-export default function SummarySkills({ data, onChange, onToggleSummary, onToggleSkills, editMode }) {
+export default function SummarySkills({ data, onChange, isEdit, onToggleSummary, onToggleSkills, editMode }) {
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+    }
+  };
+
   return (
-    <>
-      <div className="cv-form-card">
-        <h2>2. SUMMARY</h2>
+    <div className="cv-form-card">
+      <h2>2. RINGKASAN & KEAHLIAN</h2>
+      
+      {/* Bagian Ringkasan */}
+      <div style={{ marginBottom: '20px' }}>
         {editMode.summary ? (
-          <form onSubmit={(e) => { e.preventDefault(); onToggleSummary(); }}>
-            <label>Tentang Anda (Singkat & Padat)</label>
-            <textarea name="summary" value={data.summary} onChange={onChange} placeholder="Contoh: Pengembang perangkat lunak berdedikasi dengan keahlian dalam web development..." required />
-            <button type="submit" className="btn-submit">Simpan</button>
+          <form 
+            onSubmit={(e) => { e.preventDefault(); onToggleSummary(); }}
+            onKeyDown={handleKeyDown}
+          >
+            <label>Ringkasan Profesional</label>
+            <textarea name="summary" value={data.summary} onChange={onChange} placeholder="Tuliskan profil singkat Anda..." required />
+            <button type="submit" className="btn-submit">Simpan Ringkasan</button>
           </form>
         ) : (
-          <div>
-            <p className="locked-text">&#10004; Tersimpan.</p>
-            <button onClick={onToggleSummary} className="btn-edit">Edit</button>
+          <div style={{ marginBottom: '10px' }}>
+            <p className="locked-text">&#10004; Ringkasan Tersimpan.</p>
+            <button onClick={onToggleSummary} className="btn-edit">Edit Ringkasan</button>
           </div>
         )}
       </div>
 
-      <div className="cv-form-card">
-        <h2>3. KEAHLIAN / SKILLS</h2>
+      {/* Bagian Keahlian / Skills */}
+      <div>
         {editMode.skills ? (
-          <form onSubmit={(e) => { e.preventDefault(); onToggleSkills(); }}>
-            <label>Keahlian (Pisahkan dengan koma)</label>
-            <input type="text" name="skills" value={data.skills} onChange={onChange} placeholder="Contoh: HTML, CSS, JavaScript, PHP, MySQL, Laravel, Git" required />
-            <button type="submit" className="btn-submit">Simpan</button>
+          <form 
+            onSubmit={(e) => { e.preventDefault(); onToggleSkills(); }}
+            onKeyDown={handleKeyDown}
+          >
+            <label>Keahlian (Pisahkan dengan Enter atau Koma)</label>
+            <textarea name="skills" value={data.skills} onChange={onChange} placeholder="Contoh: HTML, CSS, JavaScript, PHP" required />
+            <button type="submit" className="btn-submit">Simpan Keahlian</button>
           </form>
         ) : (
           <div>
-            <p className="locked-text">&#10004; Tersimpan.</p>
-            <button onClick={onToggleSkills} className="btn-edit">Edit</button>
+            <p className="locked-text">&#10004; Keahlian Tersimpan.</p>
+            <button onClick={onToggleSkills} className="btn-edit">Edit Keahlian</button>
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
