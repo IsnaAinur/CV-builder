@@ -1,16 +1,76 @@
-# React + Vite
+# CV Application
+CV Application is a web-based resume builder developed using React.js. The application is designed to help users create and manage a simple curriculum vitae by entering personal information, educational background, and work experience through interactive forms.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The project was developed as part of a React learning exercise with a focus on understanding component structure, state management, props, form handling, and conditional rendering in modern frontend development.
 
-Currently, two official plugins are available:
+## Main Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```text
+1. Users can enter personal data including:
 
-## React Compiler
+Name
+Email address
+Phone number
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. Users can add summary and skills
 
-## Expanding the ESLint configuration
+3. Users can add educational history such as:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+School or university name
+Title of study
+Study period
+
+4. Users can provide work experience details including:
+
+Company name
+Position title
+Main responsibilities
+Employment duration
+
+5. Each section supports:
+
+Submit button to display the entered information
+Edit button to reopen the form with previously saved values
+```
+
+## Project Structure
+
+```text
+src
+│
+├── components
+│   ├── GeneralInfo.jsx
+│   ├── Education.jsx
+│   ├── Experience.jsx
+│   └── Preview.jsx
+│
+├── styles
+│   ├── general.css
+│   ├── education.css
+│   ├── experience.css
+│   └── preview.css
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+
+## Installation Guide
+
+Clone Repository
+git clone https://github.com/IsnaAinur/CV-builder.git
+
+Open Project Directory
+```bash
+cd CV-builder
+```
+Install Dependencies
+```bash
+npm install
+```
+Run Development Server
+```bash
+npm run dev
+```
+If using Create React App:
+```bash
+npm start

@@ -37,16 +37,16 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* 1. HEADER */}
+      {/* HEADER */}
       <header>
         <h1>Curriculum Vitae</h1>
         <p>Build your own CV with ease</p>
       </header>
 
-      {/* CONTAINER UTAMA */}
+      {/* MAIN CONTAINER */}
       <main className="cv-builder">
         
-        {/* 2. INPUT FORM */}
+        {/* INPUT FORM */}
         <div className="form-column">
           <GeneralInfo data={cvData} onChange={handleChange} isEdit={editMode.general} onToggle={() => toggleEdit('general')} />
           <SummarySkills data={cvData} onChange={handleChange} isEdit={editMode.summary} onToggleSummary={() => toggleEdit('summary')} onToggleSkills={() => toggleEdit('skills')} editMode={editMode} />
@@ -55,13 +55,13 @@ function App() {
           <Organization data={cvData} onChange={handleChange} isEdit={editMode.organization} onToggle={() => toggleEdit('organization')} />
         </div>
 
-        {/* 3. PREVIEW CV */}
+        {/* PREVIEW CV */}
         <PreviewCV data={cvData} />
 
-        {/* 4. TOMBOL UNDUH CV */}
+        {/* DOWNLOAD BUTTON */}
         <div className="btn-download-container">
           <button className="btn-download" onClick={() => window.print()}>
-            <span dangerouslySetInnerHTML={{ __html: '&#128190; ' }} /> UNDUH CV (PDF)
+            <span dangerouslySetInnerHTML={{ __html: '&#128190; ' }} /> DOWNLOAD CV
           </button>
         </div>
 
