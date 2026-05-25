@@ -53,10 +53,12 @@ src
 ├── App.jsx
 ├── main.jsx
 └── index.css
+```
 
 ## Installation Guide
 
 Clone Repository
+```bash
 git clone https://github.com/IsnaAinur/CV-builder.git
 
 Open Project Directory
